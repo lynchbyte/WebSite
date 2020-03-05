@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Welcome</title>
+
+  <style>
+    body {
+      margin: 0px;
+      height: 100vh;
+      font-family: Monospace;
+      background-color: #101010;
+      color: #000;
+      overflow: hidden;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="container"></div>
+  <script id="vertexShader" type="x-shader/x-vertex">
+    void main() {
+        gl_Position = vec4( position, 1.0 );
+    }
+</script>
+
+ 
+    
+</script>
+
+  <script type="module">
+    import * as THREE from '../../js/three.module.js'
+
+    import { picNew } from '../../js/_picNewClass.mjs';
+
+    window.THREE = THREE;
+
+    var container;
+    var camera, scene, renderer;
+    var uniforms;
+
+    init();
+    animate();
+
+    function init() {
+      container = document.getElementById('container');
+
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+
+      camera.lookAt(0, 0, 0);
+      camera.position.z = 1;
+
+      scene = new THREE.Scene();
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor('white');
+      document.body.appendChild(renderer.domElement);
+
+      // Lights
+      var light = new THREE.DirectionalLight(0xffffff, 0.5);
+      light.position.set(0, 1, 1).normalize();
+      scene.add(light);
+
+      var light = new THREE.AmbientLight(0xffffff, 0.5);
+      light.position.set(0, 1, 1).normalize();
+      scene.add(light);
+
+      //Title Picture
+      makePicTitle();
+
+      window.addEventListener('resize', onWindowResize, false);
+ 
+    }
+
+    function onWindowResize(event) {
+
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      //TO DO
+      // https://jsfiddle.net/3k8ah1py/
+    }
+
+    async function makePicTitle() {
+
+      const tp = await new picNew(
+
+        new THREE.PlaneBufferGeometry(0.5 * 4, 0.5 * 7, 1, 1),
+        new THREE.MeshPhongMaterial({ color: 'green' }),
+        './02_media/pawel-czerwinski.jpg',        //url
+        
+       
+        0, (180 * (Math.PI / 180)), (-90 * (Math.PI / 180)),    //rotX,rotY,rotZ
+        0, 0, -0.1,   //posX,posY,posZ
+        'tp',       //name
+        true, //vis
+        false,       //recShad, 
+        false,      //castShad,
+
+      );
+
+      scene.add(tp);
+     
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      render();
+    }
+
+    function render() {
+      
+      renderer.render(scene, camera);
+    }
+  </script>
+</body>
+
+</html>
