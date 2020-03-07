@@ -50,7 +50,7 @@ var uniforms;
 
 var cameraTarget
 
-const soundClick = new Howl({ src: ['03_media/Audio/LV-HTIS Beeps Simple 03.wav'], volume: 1, });
+const soundClick = new Howl({ src: ['03_media/Audio/Beep.wav'], volume: 1, });
 
 init();
 animate();
