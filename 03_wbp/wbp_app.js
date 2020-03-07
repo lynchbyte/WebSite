@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <shaunalynch.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  */
 
 import * as THREE from '../../js/three.module.js';
