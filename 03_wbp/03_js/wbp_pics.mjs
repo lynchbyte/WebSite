@@ -85,7 +85,9 @@ export async function addCredits3() {
     );
 
     scene.add(cr3);
+    cr3.material.side = THREE.FrontSide;
 }
+
 
 export async function addArrowUp() {
 
