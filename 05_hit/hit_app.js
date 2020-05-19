@@ -94,6 +94,10 @@ function init() {
     document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
 
     soundAmb.play();
+        setTimeout( () => {
+					
+        soundAmb.stop();
+      }, 120000);
 
 
 
