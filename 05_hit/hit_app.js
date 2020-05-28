@@ -95,6 +95,11 @@ function init() {
 
     soundAmb.play();
 
+        setTimeout( () => {
+					
+        soundAmb.stop();
+      }, 120000);
+
 
 
     function onSelect() {
