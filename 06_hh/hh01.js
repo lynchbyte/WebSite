@@ -64,7 +64,7 @@ function init() {
     container = document.createElement('div');
     document.body.appendChild(container);
 
-    scene.background = new THREE.Color(0x15141f);//dark purple
+  //  scene.background = new THREE.Color(0x15141f);//dark purple
 
     //  scene.background = new THREE.Color(0x090b10);//indigo
 
