@@ -106,7 +106,7 @@ function init() {
 
 
 
-    soundAmb.play();
+  //  soundAmb.play();
 
     const OrbControls = new OrbitControls(camera, container);
     OrbControls.target.set(0, 1.6, 0);
