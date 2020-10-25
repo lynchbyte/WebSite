@@ -89,7 +89,7 @@ function init() {
     makeTextCentJus('Happy', 'hhTxt1', 0.5, 0.07, 0xFFA500, -2, 4, -5, 0, 0, 0);
     makeTextCentJus('Halloween', 'hhTxt2', 0.5, 0.07, 0xFFA500, -2, 3.275, -5, 0, 0, 0);
 
-    // soundAmb.play();
+    soundAmb.play();
 
 
     const OrbControls = new OrbitControls(camera, container);
