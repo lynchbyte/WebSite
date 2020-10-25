@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="description" content="Web XR Experiment">
+
+	<meta name="viewport" content="width=device-width">
+
+	<meta name="keywords"
+		content="web xr, magic window, augmented reality, web vr, virtual reality, vr, vr games, ar, ar games, three.js webxr">
+
+	<meta name="author" content="Shauna Lynch">
+
+	<title>Happy Halloween</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+	<style>
+		* {
+			font-family: 'IM Fell English SC', serif;
+		}
+
+		body {
+
+
+			background-color: #101010;
+			color: #fff;
+			margin: 0px;
+			overflow: hidden;
+		}
+
+		#overlay {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			background: rgba(0, 0, 0, 0.7);
+
+
+
+		}
+
+		#overlay2 {
+			position: absolute;
+			z-index: 2;
+			bottom: 0;
+			width: 100%;
+			height: 10%;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgb(0, 0, 0.7);
+			
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="overlay">
+
+	</div>
+	<div id="overlay2">
+
+	</div>
+
+	<div id="container">
+
+	</div>
+	<script src="../js/howler.min.js"></script>
+	<script src="../js/tween.min.js"></script>
+
+
+
+	<script type="module" src="hh01.js"></script>
+
+</body>
+
+</html>
