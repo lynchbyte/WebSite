@@ -339,7 +339,7 @@ function render(timestamp, frame) {
 
     if (mixer) mixer.update(delta);
 
-    if (model && model.userData.size === 'Small') model.rotation.y -= 0.0075;
+    if (model && model.userData.size === 'Small') model.rotation.y -= 0.004;
 
     renderer.render(scene, camera);
 
