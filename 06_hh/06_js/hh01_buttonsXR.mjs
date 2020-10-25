@@ -43,22 +43,15 @@ const Object5 = {
 
 };
 
-// var sessionInit = { optionalFeatures: ['local-floor', 'bounded-floor'] };
-// navigator.xr.requestSession('immersive-vr', sessionInit)
-
-
-//step 1 - Query XR mode is supported //
-
+//1 - Query XR mode is supported //
 export async function XRSuppQry() {
-
 
     if ('xr' in navigator) {
 
         const immersiveVROK = await navigator.xr.isSessionSupported("immersive-vr");
         if (immersiveVROK) {
 
-
-            //step 2 - advertise XR functionality //
+            //2 - advertise XR functionality //
             makeButton(Object1)
         }
 
@@ -79,13 +72,12 @@ export async function XRSuppQry() {
 
         }
 
-
     }
 }
 
 function makeButton(item) {
 
-    var nB = document.createElement('button');
+    const nB = document.createElement('button');
 
     nB.textContent = item.text;
     nB.id = item.name;
@@ -95,7 +87,8 @@ function makeButton(item) {
     nB.font = 'IM Fell English SC';
 
     overlay.appendChild(nB);
-    //step 3 - user-activation event//
+
+    //3 - user-activation event//
     nB.onclick = function () {
 
         overlay.remove();
@@ -109,62 +102,58 @@ function makeButton(item) {
     }
 }
 
-
 async function startSession(type) {
 
     switch (type) {
-        case 'immersive-vr':
-            mkFg();
+        case 'immersive-vr':            
             moveDown();
             makeExit3DPlane();
             break;
+
         case 'immersive-ar':
-            
+            arEnv();
+            moveDown();
+            makeExitDOM();            
+            break;
+
+        case 'inline':            
             moveDown();
             makeExitDOM();
-            //makeExit3DCube();
             break;
-        case 'inline':
-            mkFg();
-            moveDown();
-            makeExitDOM();
-            break;
-        case 'deskMobile':
-            mkFg();
-            makeExitDOM();
-            // makeExit3DCube();
+
+        case 'deskMobile':            
+            makeExitDOM();            
             return
             break;
-        case 'deskDesk':
-            mkFg();
-            makeExitDOM();
-            // makeExit3DCube();
+
+        case 'deskDesk':            
+            makeExitDOM();            
             return;
             break;
     }
 
     try {
 
-        //step 4 - request an immersive session from the device//
+        //4 - request an immersive session from the device//
         //for inline
         if (type == 'inline') {
 
-            var session = await navigator.xr.requestSession(type, {
+            const session = await navigator.xr.requestSession(type, {
 
                 optionalFeatures: ['local']
             });
 
-            var xrSession = session;
+            const xrSession = session;
 
             onSessionStarted(xrSession, type);
         }
         //for immersive
         else {
 
-            var session = await navigator.xr.requestSession(type);
+            const session = await navigator.xr.requestSession(type);
 
 
-            var xrSession = session;
+            const xrSession = session;
 
             onSessionStarted(xrSession);
         }
@@ -189,15 +178,14 @@ function onSessionStarted(session) {
 
     renderer.xr.setReferenceSpaceType('local');
 
-    //step 5 - use the session to run a render loop //
+    //5 - use the session to run a render loop //
     renderer.xr.setSession(session);
 
 }
 
 async function onSessionEnded() {
 
-    console.log(`to do add end`);
-   // location.reload();
+    console.log(`ended`);
 
 }
 
@@ -208,7 +196,7 @@ async function makeExit3DPlane() {
         new THREE.MeshPhongMaterial({ color: 'green' }),
         './06_media/exiit.png',         //url
         0, (-45 * (Math.PI / 180)), 0,          //rotX,rotY,rotZ
-        3, 1.5, -3,                           //posX,posY,posZ
+        5, 0.5, -3,                           //posX,posY,posZ
         'exit',                                   //name
         true,                                   //vis
         false,                                  //recShad, 
@@ -228,28 +216,13 @@ async function makeExit3DPlane() {
 
 }
 
-async function makeExit3DCube() {
-
-    var texture = new THREE.TextureLoader().load('./06_media/exiit.png');
-
-    var geometry = new THREE.BoxBufferGeometry(0.5, 0.5, 0.5);
-    var material = new THREE.MeshBasicMaterial({ map: texture });
-
-    var mesh = new THREE.Mesh(geometry, material);
-    //to do add wireframe outline
-    mesh.name = 'exit';
-    mesh.position.set(7.5, 1.5, -3)
-    scene.add(mesh);
-
-}
-
 async function makeExitDOM() {
 
-    var x = document.getElementById("overlay2");
+    const x = document.getElementById("overlay2");
 
     x.style.display = "flex";
 
-    var nB = document.createElement('button');
+    const nB = document.createElement('button');
 
     nB.textContent = 'EXIT';
 
@@ -268,13 +241,14 @@ async function makeExitDOM() {
 
 function moveDown() {
 
-
-    for (var i = 0; i < mvDw.length; i++) {
+    for (let i = 0; i < mvDw.length; i++) {
         let ob = mvDw[i];
         console.log(ob);
+
+        //fix
         if (ob.name == "hhTxt1") { console.log(ob.position.y); }
         ob.translateY(-3);
-        if (ob.name == "hhTxt1") { console.log(ob.position.y); }
+        if (ob.name == "hhTxt2") { console.log(ob.position.y); }
         ob.updateMatrixWorld();
     }
 
@@ -293,8 +267,20 @@ function stylizeElement(element) {
 
 }
 
-function mkFg(){
-    scene.fog = new THREE.FogExp2( scene.background, 0.02 );
+function arEnv() {
+
+    const ob1 = scene.getObjectByName('SkyDome');
+    scene.remove(ob1);
+
+    const ob2 = scene.getObjectByName('Floor');
+    scene.remove(ob2);
+
+    const ob3 = scene.getObjectByName("LFlight", true);
+    scene.remove(ob3);
+
+    scene.fog.near = 0.1;
+    scene.fog.far = 0;
+
 }
 
 
