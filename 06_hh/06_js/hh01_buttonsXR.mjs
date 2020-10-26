@@ -109,32 +109,35 @@ function makeButton(item) {
 
 async function startSession(type) {
 
-    infOff();
-
     switch (type) {
         case 'immersive-vr':            
             moveDown();
             makeExit3DPlane();
+            infOff();
             break;
 
         case 'immersive-ar':
             arEnv();
             moveDown();
-            makeExitDOM();            
+            makeExitDOM();
+            infOff();            
             break;
 
         case 'inline':            
             moveDown();
             makeExitDOM();
+            infOff();
             break;
 
         case 'deskMobile':            
-            makeExitDOM();            
+            makeExitDOM();
+            infOff();            
             return
             break;
 
         case 'deskDesk':            
-            makeExitDOM();            
+            makeExitDOM();
+            infOff();            
             return;
             break;
     }
