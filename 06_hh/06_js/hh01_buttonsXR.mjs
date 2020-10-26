@@ -1,4 +1,9 @@
 
+/**
+ * @author Shauna Lynch <lynchbyte.com>
+ * 
+ */
+
 import { scene, camera, clickRoom, renderer, mvDw } from '../hh01.js'
 import { picNew } from '../../js/_picNewClass.mjs';
 
@@ -104,6 +109,8 @@ function makeButton(item) {
 
 async function startSession(type) {
 
+    infOff();
+
     switch (type) {
         case 'immersive-vr':            
             moveDown();
@@ -175,7 +182,6 @@ function onSessionStarted(session) {
     console.log(scene);
     console.log(renderer);
 
-
     renderer.xr.setReferenceSpaceType('local');
 
     //5 - use the session to run a render loop //
@@ -246,10 +252,10 @@ function moveDown() {
         console.log(ob);
 
         //fix
-        if (ob.name == "hhTxt1") { console.log(ob.position.y); }
-        ob.translateY(-3);
-        if (ob.name == "hhTxt2") { console.log(ob.position.y); }
-        ob.updateMatrixWorld();
+        // if (ob.name == "hhTxt1") { console.log(ob.position.y); }
+        // ob.translateY(-3);
+        // if (ob.name == "hhTxt2") { console.log(ob.position.y); }
+        // ob.updateMatrixWorld();
     }
 
 }
@@ -282,6 +288,13 @@ function arEnv() {
     scene.fog.far = 0;
 
 }
+
+function infOff(){
+const x = document.getElementById("info");
+
+x.style.display = "none";
+}
+
 
 
 

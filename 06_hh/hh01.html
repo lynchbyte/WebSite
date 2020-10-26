@@ -54,12 +54,30 @@
 			display: none;
 			align-items: center;
 			justify-content: center;
-			background: rgb(0, 0, 0.7);			
+			background: rgb(0, 0, 0.7);
+		}
+
+		#info {
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			color:orange;
+			text-align: center;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			z-index: 2;
+			
 		}
 	</style>
 </head>
 
 <body>
+
+
 
 	<div id="overlay">
 
@@ -67,11 +85,19 @@
 	<div id="overlay2">
 
 	</div>
+	<div id="info">
+		Cat scene by <a href="https://sketchfab.com/3d-models/hh-a12f747dbcbe4e43879ef24ea48f10b0" target="_blank">luyssport </a>
+		Bat by <a href="https://sketchfab.com/3d-models/bat-8719886cf8f645ca9d53d766976baf9c" target="_blank">Dzimge</a>
+		<small> license <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank"> CC-BY 4.0</a> </small>
+		<br>Music by <a href="http://dig.ccmixter.org/files/PorchCat/25929" target="_blank">PorchCat</a>
+		<small> license <a href="https://creativecommons.org/licenses/by/3.0/legalcode" target="_blank"> CC-BY 3.0</a>
+
+	</div>
 
 	<div id="container">
 
 	</div>
-	
+
 	<script src="../js/howler.min.js"></script>
 
 	<script type="module" src="hh01.js"></script>

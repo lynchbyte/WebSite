@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
   * and
  * halloween model;
  * https://sketchfab.com/3d-models/hh-a12f747dbcbe4e43879ef24ea48f10b0 (modified)

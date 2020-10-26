@@ -1,7 +1,6 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  * 
-
  */
 
 import { scene, mvDw } from '../hh01.js';
