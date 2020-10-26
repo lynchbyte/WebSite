@@ -255,10 +255,10 @@ function moveDown() {
         console.log(ob);
 
         //fix
-        // if (ob.name == "hhTxt1") { console.log(ob.position.y); }
-        // ob.translateY(-3);
-        // if (ob.name == "hhTxt2") { console.log(ob.position.y); }
-        // ob.updateMatrixWorld();
+        if (ob.name == "hhTxt1") { console.log(ob.position.y); }
+        ob.translateY(-3);
+        if (ob.name == "hhTxt2") { console.log(ob.position.y); }
+        ob.updateMatrixWorld();
     }
 
 }
