@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  */
 import { scene, inkColour } from '../wbp_app.js';
 

@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <shaunalynch.com.au>
+ * @author Shauna Lynch <shaunalynch.com>
  */
 
 import { scene, group, controller1} from '../wbp_app.js';

@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  */
 import { scene, clickRoom } from '../hang_app.js';
 import { picNew } from '../../js/_picNewClass.mjs';

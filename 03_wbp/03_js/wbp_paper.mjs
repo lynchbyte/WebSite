@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  */
 import { scene, group, paperWidth, paperHeight, paperYpos, paperZpos, paperXrot  } from '../wbp_app.js';
 

@@ -1,5 +1,5 @@
 /**
- * @author Shauna Lynch <lynchbyte.com.au>
+ * @author Shauna Lynch <lynchbyte.com>
  */
 
 import { AlphaGrp, clickRoom } from '../hang_app.js';
