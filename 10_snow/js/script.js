@@ -52,7 +52,7 @@ const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);//0.3 on start, 
 hemi.position.set(0.0, -1, 0);
 scene.add(hemi);
 hemi.name = `Hemi`;
-gui.add(hemi, 'intensity').min(0).max(5).step(0.001).name('hemiIntens');
+
 
 const lightD = new THREE.DirectionalLight(0xfff0dd, 1.4);
 lightD.position.set(2, 0, 1.5);
