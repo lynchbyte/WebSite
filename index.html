@@ -2,239 +2,321 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <meta name="keywords" content="web xr, web vr, virtual reality, vr, vr games, augmented reality, three.js webxr">
+    <meta name="keywords" content="web xr, web vr, virtual reality, vr, vr games, augmented reality, three.js webxr">
 
-  <meta name="author" content="Shauna Lynch">
+    <meta name="author" content="Shauna Lynch">
 
-  <link rel="stylesheet" href="/skeleton.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/normalize.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@700&display=swap"
-    rel="stylesheet">
+    <link rel="stylesheet" href="/skeleton.css" />
 
-  <title>Lynch Byte</title>
-	
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2667323637424458"
-     crossorigin="anonymous"></script>
+    <!--  <link rel="stylesheet" href="/style_next.css"> -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+
+    <title>Lynch Byte</title>
+
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0; 
+    }
+
+    body {
+
+        font-family: 'Open Sans Condensed', sans-serif;
+
+    }
+
+    .para {
+
+        font-family: 'Open Sans', sans-serif;
+
+    }
+
+    .img {
+
+        width: 98%;
+        border-style: solid;
+        border-color: #e6e1e1;
+        border-width: 4px;
+        filter: alpha(opacity=100);
+        transition: .25s ease;
+
+    }
+
+    .img:hover {
+
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        transition: .25s ease;
+
+    }
+
+    .canvasholder {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .webgl {
+
+        top: 0;
+        left: 0;
+        width: 100%;
+
+    }
+
+    .blackout {
+
+        width: 100%;
+        height: 100%;
+        background: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .loadingspinner {
+
+        pointer-events: none;
+        width: 2.5em;
+        height: 2.5em;
+        border: 0.4em solid transparent;
+        border-color: rgb(0, 0, 0);
+        border-top-color: #3b2535;
+        border-radius: 50%;
+        animation: loadingspin 1s linear infinite;
+
+    }
+
+    @keyframes loadingspin {
+
+        100% {
+
+            transform: rotate(360deg)
+        }
+
+    }
+</style>
 
 <body>
-  <!-- SHOWCASE -->
+    <div class="blackout">
 
+        <div class="loadingspinner">
 
-
-  <div class="flex-container" style="padding-top: 1px">
-    <div>
-      <iframe class="showcase-frame" src="/07_box/index.html"></iframe>
+        </div>
 
     </div>
-  </div>
 
+    <div class="canvasholder">
 
-  <div>
-    <img class="picLy" src="/01_media/lynchbyte.png">
-  </div>
-  </section>
-
-  <!-- SECTION-A -->
-  <hr>
-  <section >
-    <div class="container" style="padding-top: 75px">
-      <div class="row">
-	  
-	          <div class="one-third column">
-          <a href="/10_snow/index.html">
-            <img src="/01_media/snow_landing_600x400.webp" class="img">
-          </a>
-          <h5>O' Christmas Tree</h5>
-          <p style="font-family: 'Open Sans', sans-serif">Web AR Hit Test for mobile devices.  Tree by <a href=https://sketchfab.com/asvari>BlobFortress</a>
-            
-          </p>
-        </div>
-
-        <div class="one-third column">
-          <a href="/09_sunsetStars/index.html">
-            <img src="/01_media/titleSS.webp" class="img">
-          </a>
-          <h5>Sunset Stars</h5>
-          <p style="font-family: 'Open Sans', sans-serif">My entry for js13k Games WebXR 2021.
-            VR headset and controller required.
-          </p>
-        </div>
-
-
-        <div class="one-third column">
-          <a href="/06_hh/hh01.html">
-            <img src="/01_media/titleHH.png" class="img">
-          </a>
-          <h5>Happy Halloween</h5>
-          <p style="font-family: 'Open Sans', sans-serif">Web XR and three.js.
-            Suitable for mobile devices. <br />
-            Cat scene by <a href="https://sketchfab.com/3d-models/hh-a12f747dbcbe4e43879ef24ea48f10b0">luyssport </a>,
-            Bat by <a href="https://sketchfab.com/3d-models/bat-8719886cf8f645ca9d53d766976baf9c">Dzimge</a>,
-            <small> license <a href="https://creativecommons.org/licenses/by/4.0/legalcode"> CC-BY 4.0</a> </small>
-            Music by <a href="http://dig.ccmixter.org/files/PorchCat/25929">PorchCat</a> 
-            <small> license <a href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a>  </small>
-          </p>
-        </div>
-
-
-
-
-
-
-      </div>
-    </div>
-   
-  </section>
-
-  <section class="section section-a">
-    <div class="container" style="padding-top: 75px">
-
-      <div class="one-third column">
-        <a href="/05_hit/hit.html">
-          <img class="img" src="/01_media/hitTest.png">
-        </a>
-        <h5>AR Hit Test</h5>
-        <p style="font-family: 'Open Sans', sans-serif">An augmented reality scene using Web XR and three.js. Suitable
-          for mobile devices.
-          <br />Castle by <a
-            href="https://sketchfab.com/3d-models/medieval-fantasy-book-06d5a80a04fc4c5ab552759e9a97d91a">Pixel</a>,
-          <small>  license <a href="https://creativecommons.org/licenses/by/4.0/"> CC-BY 4.0</a></small> 
-          <br /> Music by <a href="http://ccmixter.org/files/_ghost/25389">_ghost</a>, <small> license <a
-              href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-        </p>
-      </div>
-  
-
-        <div class="one-third column">
-          <a href="/04_hang/hang.html">
-            <img class="img" src="/01_media/hangmanTitle.png">
-          </a>
-          <h5>Hang Man</h5>
-          <p style="font-family: 'Open Sans', sans-serif">A virtual reality game using Web XR and three.js, game pad
-            controllr required. Suitable for mobile VR devices.<br /> Boots by <a
-              href="https://poly.google.com/view/9Qf1MHGePvS">Google</a> on Poly, <small>license <a
-                href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a></small>
-          </p>
-        </div>
-
-
-        <div class="one-third column">
-          <a href="/03_wbp/wbp.html">
-            <img src="/01_media/WhiteBlankPage.png" class="img">
-          </a>
-          <h5>White Blank Page</h5>
-          <p style="font-family: 'Open Sans', sans-serif">A virtual reality drawing canvas using Web XR and three.js.
-            Requires a
-            game pad controller. Suitable for mobile VR devices. <br />Drafting table by <a
-              href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson </a>on Poly, <small> license <a
-                href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-          </p>
-        </div>
-
-    
-    
-    </div>
-  </section>
-
-  <!-- SECTION-B -->
-  <hr>
-  <section class="section section-b">
-    <div class="container" style="padding:20">
-      <h4 class="section-heading">
-        About
-      </h4>
-      <p class="section-description" style="font-family: 'Open Sans', sans-serif">
-        Web experiments using Web XR and three.js.
-        <br /> Made in Newcastle, Australia. ❤️   🦘      🐨
+        <canvas class="webgl" class="u-max-full-width" style="border:1px solid #000000;"></canvas>
 
     </div>
-  </section>
 
-  <!-- SECTION-C -->
+    <!-- Skeleton base component-->
+    <div class="container">
 
-  <hr>
-  <section class="section section-c">
-    <div class="container" style="padding:20">
+        <hr>
 
-      <h4>Contact</h4>
-      <form name="contact" method="POST" data-netlify="true">
+        <h4> Web Experiments </h4>
+
+        <!-- Grid -->
+
+        <!-- first row -->
         <div class="row">
-          <div class="eight columns">
-            <label>Your Name: <input type="text" name="name" /></label>
 
-            <label>Your Email: <input type="email" name="email" /></label>
+     
 
-            <label>Message: <textarea name="message" class="u-full-width" placeholder="Hi!"></textarea></label>
+            <div class="one-third column">
+                <a href="/10_snow/index.html">
+                    <img src="/01_media/snow_landing_600x400.webp" class="img">
+                </a>
+                <h5>O' Christmas Tree</h5>
+                <p class=para>Web AR Hit Test for mobile devices. Tree by <a
+                        href=https://sketchfab.com/asvari>BlobFortress</a>
+
+                </p>
+            </div>
 
 
-            <button type="submit">Send</button>
-          </div>
-      </form>
+
+            <div class="one-third column">
+                <a href="/09_sunsetStars/index.html">
+                    <img src="/01_media/titleSS.webp" class="img">
+                </a>
+                <h5>Sunset Stars</h5>
+                <p class=para>My entry for js13k Games WebXR 2021.
+                    VR headset and controller required.
+                </p>
+            </div>
+
+
+
+            <div class="one-third column">
+                <a href="/07_box/index.html">
+                    <img src="/01_media/box_landing_600x400.webp" class="img">
+                </a>
+                <h5>Cannon + Three</h5>
+                <p class=para>three.js scene with cannon.js, a 3D physics engine
+                </p>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- next row -->
+        <div class="row">
+
+
+
+            <div class="one-third column">
+                <a href="/05_hit/hit.html">
+                  <img class="img" src="/01_media/hitTest.png">
+                </a>
+                <h5>AR Hit Test</h5>
+                <p style="font-family: 'Open Sans', sans-serif">An augmented reality scene using Web XR and three.js. Suitable
+                  for mobile devices.
+                  <br />Castle by <a
+                    href="https://sketchfab.com/3d-models/medieval-fantasy-book-06d5a80a04fc4c5ab552759e9a97d91a">Pixel</a>,
+                  <small>  license <a href="https://creativecommons.org/licenses/by/4.0/"> CC-BY 4.0</a></small> 
+                  <br /> Music by <a href="http://ccmixter.org/files/_ghost/25389">_ghost</a>, <small> license <a
+                      href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
+                </p>
+              </div>
+
+
+      
+
+            <div class="one-third column">
+                <a href="/04_hang/hang.html">
+                    <img class="img" src="/01_media/hangmanTitle.png">
+                </a>
+                <h5>Hang Man</h5>
+                <p class=para>A virtual reality game using Web XR and three.js, game
+                    pad
+                    controllr required. Suitable for mobile VR devices.<br /> Boots by <a
+                        href="https://poly.google.com/view/9Qf1MHGePvS">Google</a> on Poly, <small>license <a
+                            href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a></small>
+                </p>
+            </div>
+
+
+
+            <div class="one-third column">
+                <a href="/03_wbp/wbp.html">
+                    <img src="/01_media/WhiteBlankPage.png" class="img">
+                </a>
+                <h5>White Blank Page</h5>
+                <p class=para>A virtual reality drawing canvas using Web XR and
+                    three.js.
+                    Requires a
+                    game pad controller. Suitable for mobile VR devices. <br />Drafting table by <a
+                        href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson </a>on Poly, <small> license
+                        <a href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
+                </p>
+            </div>
+
+            
+        </div>
+
+
+        <!-- made by -->
+        <hr>
+        <h4> About </h4>
+
+        <p class=para>
+            Web experiments using Web XR and three.js.
+            <br /> Made in Newcastle, Australia. ❤️ 🦘 🐨
+
+
+            <!--Form -->
+        <div>
+
+            <hr>
+
+            <h4>Contact</h4>
+
+            <form name="contact" method="POST" data-netlify="true">
+
+                <div class="row">
+
+                    <div class="eight columns">
+
+                        <label>Your Name: <input type="text" name="name" /></label>
+
+                        <label>Your Email: <input type="email" name="email" /></label>
+
+                        <label>Message: <textarea name="message" class="u-full-width"
+                                placeholder="Hi!"></textarea></label>
+
+                        <button type="submit">Send</button>
+
+                    </div>
+
+            </form>
+        </div>
+
+        <!-- In touch -->
+        <hr>
+        <div style="text-align: center">
+
+            <a href="https://github.com/lynchbyte"><img src="01_media/github.svg"
+                    style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
+
+            <a href="https://twitter.com/Shauna__Lynch"><img src="01_media/twitter.svg"
+                    style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
+
+            <a href="https://linkedin.com/in/shauna-lynch-7966138b"><img src="01_media/linkedin.svg"
+                    style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
+
+        </div>
+
+        <!-- License -->
+        <hr>
+        <div style="text-align: center">
+
+            <h7>
+                <p class=para style="font-size: 12px">======== Any contributions to this side project gratefully appreciated ========</p>
+
+                <p class=para style="font-size: 12px">ETH - 0x2ea1fd3d537282ed1f2cc7627472a4d37d0c6c35</p>
+
+            </h7>
+
+            <hr>
+
+            <h6>Unless otherwise noted, all code under the
+
+                <a href="/license.html"> MIT License.</a>
+
+            </h6>
+
+        </div>
     </div>
 
-  </section>
-
-
-  <!-- SECTION-D -->
-  <hr>
-  <section class="section section-d">
-    <div style="text-align: center">
-      <a href="https://github.com/lynchbyte"><img src="01_media/github.svg" style="width:50px;height:50px;margin:25px;"
-          class=w3-hover-opacity></a>
-
-      <a href="https://twitter.com/Shauna__Lynch"><img src="01_media/twitter.svg"
-          style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
-
-      <a href="https://linkedin.com/in/shauna-lynch-7966138b"><img src="01_media/linkedin.svg"
-          style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
-    </div>
-  </section>
-
-  <!-- SECTION-E -->
-  <hr>
-
-  <section class="section section-e"></section>
-  <div style="text-align: center">
-  
-      <h6>
-        <p style="font-family: 'Open Sans', sans-serif">======== DONATIONS ========</p>
-
-
-        <p style="font-family: 'Open Sans', sans-serif">♥ ETH - 0x2ea1fd3d537282ed1f2cc7627472a4d37d0c6c35</p>
-
-       
-    </h6>
-
-     <!-- 
-
-    <h6>
-      css by <a href="https://github.com/dhg/Skeleton/">Skeleton</a>
-    </h6>
-
-   -->
-    <h6>Unless otherwise noted, all code under the <a href="/license.html"> MIT
-      License.</a>
-    </h6>
-
-
-	
-	
- 
-
-
- 
-  </div>
-
-  </section>
+    <script type="module" src="11_landing/dist/script.js"></script>
 
 </body>
 
