@@ -31,7 +31,7 @@
 <style>
     * {
         margin: 0;
-        padding: 0; 
+        padding: 0;
     }
 
     body {
@@ -75,10 +75,15 @@
 
     .webgl {
 
-        top: 0;
+ /*        top: 0;
         left: 0;
-        width: 100%;
+        width: 100%;*/
 
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        outline: none;
+        padding: 20px
     }
 
     .blackout {
@@ -118,82 +123,85 @@
 
     }
 
+    
 
 /* -------------scroll down animaton--------------*/
 
 .scroll-down {
-    position: absolute;
-    left: 50%;
-    bottom: 100px;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    z-index: 100;
-    text-decoration: none;
-    text-shadow: 0;
-    width: 13px;
-    height: 13px;
-    border-bottom: 2px solid rgb(22, 19, 19);
-    border-right: 2px solid rgb(60, 55, 55);
-    -webkit-transform: translate(-50%, 0%) rotate(45deg);
-    -moz-transform: translate(-50%, 0%) rotate(45deg);
-    transform: translate(-50%, 0%) rotate(45deg);
-    -webkit-animation: fade_move_down 4s ease-in-out infinite;
-    -moz-animation: fade_move_down 4s ease-in-out infinite;
-    animation: fade_move_down 4s ease-in-out infinite;
-    cursor: pointer;
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  z-index: 100;
+  text-decoration: none;
+  text-shadow: 0;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid rgb(22, 19, 19);
+  border-right: 2px solid rgb(60, 55, 55);
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+  -moz-transform: translate(-50%, 0%) rotate(45deg);
+  transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-animation: fade_move_down 4s ease-in-out infinite;
+  -moz-animation: fade_move_down 4s ease-in-out infinite;
+  animation: fade_move_down 4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+
+@-webkit-keyframes fade_move_down {
+  0% {
+    -webkit-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
   }
 
-
-  @-webkit-keyframes fade_move_down {
-    0% {
-      -webkit-transform: translate(0, -10px) rotate(45deg);
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      -webkit-transform: translate(0, 10px) rotate(45deg);
-      opacity: 0;
-    }
+  50% {
+    opacity: 1;
   }
 
-  @-moz-keyframes fade_move_down {
-    0% {
-      -moz-transform: translate(0, -10px) rotate(45deg);
-      opacity: 0;
-    }
+  100% {
+    -webkit-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
 
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      -moz-transform: translate(0, 10px) rotate(45deg);
-      opacity: 0;
-    }
+@-moz-keyframes fade_move_down {
+  0% {
+    -moz-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
   }
 
-  @keyframes fade_move_down {
-    0% {
-      transform: translate(0, -10px) rotate(45deg);
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: translate(0, 10px) rotate(45deg);
-      opacity: 0;
-    }
+  50% {
+    opacity: 1;
   }
 
-    
+  100% {
+    -moz-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fade_move_down {
+  0% {
+    transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+
+
+
 </style>
 
 <body>
@@ -208,7 +216,7 @@
 
     <div class="canvasholder">
 
-        <canvas class="webgl" class="u-max-full-width" style="border:1px solid #000000;"></canvas>
+        <canvas class="webgl" class="u-max-full-width" ></canvas>
 
     </div>
 
@@ -220,113 +228,113 @@
         <h4> Web Experiments </h4>
 
         <!-- Grid -->
-       <!-- first row -->
-       <div class="row">
+        <!-- first row -->
+        <div class="row">
 
-            
-        <div class="one-third column">
-            <a href="/12_TicTacWoe/index.html">
-                <img src="/01_media/TicTacWoe_600_400-2.png" class="img">
-            </a>
-            <h5>Tic Tac Woe</h5>
-            <p class=para>My entry for js13k Games WebXR 2022.  Desktop, VR or AR.
 
-            </p>
+            <div class="one-third column">
+                <a href="/12_TicTacWoe/index.html">
+                    <img src="/01_media/TicTacWoe_600_400-2.png" class="img">
+                </a>
+                <h5>Tic Tac Woe</h5>
+                <p class=para>My entry for js13k Games WebXR 2022. Desktop, VR or AR.
+
+                </p>
+            </div>
+
+
+
+            <div class="one-third column">
+                <a href="/10_snow/index.html">
+                    <img src="/01_media/snow_landing_600x400.webp" class="img">
+                </a>
+                <h5>O' Christmas Tree</h5>
+                <p class=para>Web AR Hit Test for mobile devices. Tree by <a
+                        href=https://sketchfab.com/asvari>BlobFortress</a>
+
+                </p>
+            </div>
+
+
+
+            <div class="one-third column">
+                <a href="/09_sunsetStars/index.html">
+                    <img src="/01_media/titleSS.webp" class="img">
+                </a>
+                <h5>Sunset Stars</h5>
+                <p class=para>My entry for js13k Games WebXR 2021.
+                    VR headset and controller required.
+                </p>
+            </div>
+
+
+
+
+
         </div>
 
+        <!-- second row -->
+        <div class="row">
+
+            <div class="one-third column">
+                <a href="/07_box/index.html">
+                    <img src="/01_media/box_landing_600x400.webp" class="img">
+                </a>
+                <h5>Cannon + Three</h5>
+                <p class=para>three.js scene with cannon.js, a 3D physics engine
+                </p>
+            </div>
 
 
-        <div class="one-third column">
-            <a href="/10_snow/index.html">
-                <img src="/01_media/snow_landing_600x400.webp" class="img">
-            </a>
-            <h5>O' Christmas Tree</h5>
-            <p class=para>Web AR Hit Test for mobile devices. Tree by <a
-                    href=https://sketchfab.com/asvari>BlobFortress</a>
 
-            </p>
+            <div class="one-third column">
+                <a href="/05_hit/hit.html">
+                    <img class="img" src="/01_media/hitTest.png">
+                </a>
+                <h5>AR Hit Test</h5>
+                <p style="font-family: 'Open Sans', sans-serif">An augmented reality scene using Web XR and three.js.
+                    Suitable
+                    for mobile devices.
+                    <br />Castle by <a
+                        href="https://sketchfab.com/3d-models/medieval-fantasy-book-06d5a80a04fc4c5ab552759e9a97d91a">Pixel</a>,
+                    <small> license <a href="https://creativecommons.org/licenses/by/4.0/"> CC-BY 4.0</a></small>
+                    <br /> Music by <a href="http://ccmixter.org/files/_ghost/25389">_ghost</a>, <small> license <a
+                            href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
+                </p>
+            </div>
+
+
+            <div class="one-third column">
+                <a href="/04_hang/hang.html">
+                    <img class="img" src="/01_media/hangmanTitle.png">
+                </a>
+                <h5>Hang Man</h5>
+                <p class=para>A virtual reality game using Web XR and three.js, game
+                    pad
+                    controllr required. Suitable for mobile VR devices.<br /> Boots by <a
+                        href="https://poly.google.com/view/9Qf1MHGePvS">Google</a> on Poly, <small>license <a
+                            href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a></small>
+                </p>
+            </div>
+
         </div>
 
-
-
-        <div class="one-third column">
-            <a href="/09_sunsetStars/index.html">
-                <img src="/01_media/titleSS.webp" class="img">
-            </a>
-            <h5>Sunset Stars</h5>
-            <p class=para>My entry for js13k Games WebXR 2021.
-                VR headset and controller required.
-            </p>
+        <!-- third row -->
+        <div class="row">
+            <div class="one-third column">
+                <a href="/03_wbp/wbp.html">
+                    <img src="/01_media/WhiteBlankPage.png" class="img">
+                </a>
+                <h5>White Blank Page</h5>
+                <p class=para>A virtual reality drawing canvas using Web XR and
+                    three.js.
+                    Requires a
+                    game pad controller. Suitable for mobile VR devices. <br />Drafting table by <a
+                        href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson </a>on Poly, <small> license
+                        <a href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
+                </p>
+            </div>
         </div>
-
-
-
-
-
-    </div>
-
-    <!-- second row -->
-    <div class="row">
-
-        <div class="one-third column">
-            <a href="/07_box/index.html">
-                <img src="/01_media/box_landing_600x400.webp" class="img">
-            </a>
-            <h5>Cannon + Three</h5>
-            <p class=para>three.js scene with cannon.js, a 3D physics engine
-            </p>
-        </div>
-
-
-
-        <div class="one-third column">
-            <a href="/05_hit/hit.html">
-                <img class="img" src="/01_media/hitTest.png">
-            </a>
-            <h5>AR Hit Test</h5>
-            <p style="font-family: 'Open Sans', sans-serif">An augmented reality scene using Web XR and three.js.
-                Suitable
-                for mobile devices.
-                <br />Castle by <a
-                    href="https://sketchfab.com/3d-models/medieval-fantasy-book-06d5a80a04fc4c5ab552759e9a97d91a">Pixel</a>,
-                <small> license <a href="https://creativecommons.org/licenses/by/4.0/"> CC-BY 4.0</a></small>
-                <br /> Music by <a href="http://ccmixter.org/files/_ghost/25389">_ghost</a>, <small> license <a
-                        href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-            </p>
-        </div>
-
-
-        <div class="one-third column">
-            <a href="/04_hang/hang.html">
-                <img class="img" src="/01_media/hangmanTitle.png">
-            </a>
-            <h5>Hang Man</h5>
-            <p class=para>A virtual reality game using Web XR and three.js, game
-                pad
-                controllr required. Suitable for mobile VR devices.<br /> Boots by <a
-                    href="https://poly.google.com/view/9Qf1MHGePvS">Google</a> on Poly, <small>license <a
-                        href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a></small>
-            </p>
-        </div>
-
-    </div>
-
-    <!-- third row -->
-    <div class="row">
-        <div class="one-third column">
-            <a href="/03_wbp/wbp.html">
-                <img src="/01_media/WhiteBlankPage.png" class="img">
-            </a>
-            <h5>White Blank Page</h5>
-            <p class=para>A virtual reality drawing canvas using Web XR and
-                three.js.
-                Requires a
-                game pad controller. Suitable for mobile VR devices. <br />Drafting table by <a
-                    href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson </a>on Poly, <small> license
-                    <a href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-            </p>
-        </div>
-    </div>
 
 
 
@@ -386,7 +394,8 @@
         <div style="text-align: center">
 
             <h7>
-                <p class=para style="font-size: 12px">======== Any contributions to this side project gratefully appreciated ========</p>
+                <p class=para style="font-size: 12px">======== Any contributions to this side project gratefully
+                    appreciated ========</p>
 
                 <p class=para style="font-size: 12px">ETH - 0x2ea1fd3d537282ed1f2cc7627472a4d37d0c6c35</p>
 
@@ -396,13 +405,13 @@
 
             <h6>Unless otherwise noted, all code under the
 
-                <a href="/license.html"target="_blank "> MIT License.</a>
+                <a href="/license.html" target="_blank "> MIT License.</a>
 
             </h6>
 
         </div>
     </div>
-   
+
 
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
 
