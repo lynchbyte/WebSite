@@ -3,7 +3,7 @@
  * @author Mugen87 / https://github.com/Mugen87
  */
 
-import { scene } from '../wbp_app.js'
+import { scene, controlArr, onSelectStart, onSelectEnd } from '../wbp_app.js'
 import { addPaper } from '../03_js/wbp_paper.mjs';
 
 var VRButton = {
@@ -30,6 +30,26 @@ var VRButton = {
 				button.textContent = 'EXIT VR';
 
 				currentSession = session;
+
+				console.log('renderer xr', renderer.xr);
+
+				// controllers helper
+				var material = new THREE.LineBasicMaterial({ color: 0x000000 });
+				var geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, - 1)]);
+				var line = new THREE.Line(geometry, material);
+				line.name = 'line';
+				line.scale.z = 5;
+
+				//add controllers here
+				controlArr[0] = renderer.xr.getController(0);
+				controlArr[0].add(line.clone());
+				controlArr[0].addEventListener('selectstart', onSelectStart);
+				controlArr[0].addEventListener('selectend', onSelectEnd);
+
+				controlArr[1] = renderer.xr.getController(1);
+				controlArr[1].add(line.clone());
+				controlArr[1].addEventListener('selectstart', onSelectStart);
+				controlArr[1].addEventListener('selectend', onSelectEnd);
 
 
 			}
@@ -118,7 +138,7 @@ var VRButton = {
 
 							addPaper();
 
-							console.log('renderer xr', renderer.xr)
+				
 						}
 
 						)
