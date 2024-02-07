@@ -19,7 +19,7 @@ window.THREE = THREE;
 export const scene = new THREE.Scene();
 export const group = new THREE.Group();
 export let camera;
-export let controller1, controller2;
+//export let controller1, controller2;
 export const controlArr = [];
 
 export const raycaster = new THREE.Raycaster();
@@ -106,35 +106,6 @@ function init() {
     document.body.appendChild(VRButton.createButton(renderer));
 
 
-
-    // controllers
-    controller1 = new THREE.Object3D();
-    scene.add(controller1);
-   // controller1.add(line.clone());
-    controlArr.push(controller1);
-   // controller1.addEventListener('selectstart', onSelectStart);
-    //controller1.addEventListener('selectend', onSelectEnd);
-
-
-
-    controller2 = new THREE.Object3D();
-        scene.add(controller2);
-        console.log("controller 2 added");
-      //  controller2.add(line.clone());
-        controlArr.push(controller2)
-        // controller2.addEventListener('selectstart', onSelectStart);
-        // controller2.addEventListener('selectend', onSelectEnd);
- 
-  
-
-
-
-
-
-
-
-
-
     //Event Listeners
     window.addEventListener('resize', onWindowResize, false);
     console.log(scene);
@@ -194,7 +165,7 @@ function cleanIntersected() {
 }
 function handleController(controller) {
 
-    if (!controller){
+    if (!controller) {
         return
     }
 
@@ -396,8 +367,10 @@ function render() {
 
     cleanIntersected();
 
-    handleController(controller1);
-   if(controller2){ handleController(controller2);}
+    if (controlArr.length > 0) {
+        handleController(controlArr[0]);
+        if (controlArr[1]) { handleController(controlArr[1]); }
+    }
 
     camera.lookAt(cameraTarget);
 

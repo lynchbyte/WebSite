@@ -6,6 +6,8 @@
 import { scene, controlArr, onSelectStart, onSelectEnd } from '../wbp_app.js'
 import { addPaper } from '../03_js/wbp_paper.mjs';
 
+let controller1, controller2;
+
 var VRButton = {
 
 	createButton: function (renderer, options) {
@@ -41,15 +43,21 @@ var VRButton = {
 				line.scale.z = 5;
 
 				//add controllers here
-				controlArr[0] = renderer.xr.getController(0);
-				controlArr[0].add(line.clone());
-				controlArr[0].addEventListener('selectstart', onSelectStart);
-				controlArr[0].addEventListener('selectend', onSelectEnd);
+				controller1 = renderer.xr.getController(0);
+				controller1.add(line.clone());
+				controller1.addEventListener('selectstart', onSelectStart);
+				controller1.addEventListener('selectend', onSelectEnd);
+				controlArr.push(controller1);
+				scene.add(controller1)
 
-				controlArr[1] = renderer.xr.getController(1);
-				controlArr[1].add(line.clone());
-				controlArr[1].addEventListener('selectstart', onSelectStart);
-				controlArr[1].addEventListener('selectend', onSelectEnd);
+
+				controller2 = renderer.xr.getController(1);
+				controller2.add(line.clone());
+				controller2.addEventListener('selectstart', onSelectStart);
+				controller2.addEventListener('selectend', onSelectEnd);
+				controlArr.push(controller2);
+				scene.add(controller2);
+
 
 
 			}
