@@ -2,7 +2,7 @@
  * @author Shauna Lynch <shaunalynch.com>
  */
 
-import { scene, group, controller1} from '../wbp_app.js';
+import { scene, group, controlArr, } from '../wbp_app.js';
 
 var pickerWidth = 0.425;
 var pickerHeight = 0.425;
@@ -66,7 +66,7 @@ export function pickColor(it) {
     //max X of canvas
     var xMax = pickPosX - (pickerWidth / 2);
     canColourPoint.x = ((xMax * -1 - lastX * -1) / pickerWidth * canvasColour.width);
-     canColourPoint.y = (((pickPosY + pickerHeight / 2) - lastY) / pickerHeight * canvasColour.height);
+    canColourPoint.y = (((pickPosY + pickerHeight / 2) - lastY) / pickerHeight * canvasColour.height);
 
     var pixel = ctxColour.getImageData(canColourPoint.x, canColourPoint.y, 1, 1);
     var data = pixel.data;
@@ -77,6 +77,13 @@ export function pickColor(it) {
     object.material.color.set(inkColour);
 
     //change wand colour
-    controller1.children[0].material.color.set(inkColour);
+    console.log('wand', controlArr[0].children[0])
+    controlArr[0].children[0].material.color.set(inkColour);
+
+    if (controlArr.length > 1) {
+
+        controlArr[1].children[0].material.color.set(inkColour);
+
+    }
 }
 

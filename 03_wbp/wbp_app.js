@@ -11,7 +11,7 @@ import { addMainInd, sizeChange } from './03_js/wbp_szPick.mjs';
 import { addColPick, pickColor } from './03_js/wbp_colPick.mjs';
 
 import { addEasel } from './03_js/wbp_models.mjs';
-import { addPicTitle, addCredits1, addCredits2, addCredits3,addArrowUp, addArrowDown, addClear, addExit } from './03_js/wbp_pics.mjs';
+import { addPicTitle, addCredits1, addCredits2, addCredits3, addArrowUp, addArrowDown, addClear, addExit } from './03_js/wbp_pics.mjs';
 import { lightbulb, addLights, addFloor, markers } from './03_js/wbp_basics.mjs';
 
 window.THREE = THREE;
@@ -19,7 +19,8 @@ window.THREE = THREE;
 export const scene = new THREE.Scene();
 export const group = new THREE.Group();
 export let camera;
-export let controller1;
+export let controller1, controller2;
+export const controlArr = [];
 
 export const raycaster = new THREE.Raycaster();
 export const intersected = [];
@@ -45,8 +46,8 @@ let renderer;
 
 let OrbControls;
 
-var moonGlow;
-var uniforms;
+// var moonGlow;
+// var uniforms;
 
 var cameraTarget
 
@@ -104,23 +105,45 @@ function init() {
 
     document.body.appendChild(VRButton.createButton(renderer));
 
-    // controllers
-    controller1 = renderer.xr.getController(0);
-    scene.add(controller1);
-
     // controllers helper
     var material = new THREE.LineBasicMaterial({ color: 0x000000 });
     var geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, - 1)]);
     var line = new THREE.Line(geometry, material);
     line.name = 'line';
     line.scale.z = 5;
-    controller1.add(line.clone());
 
-    //Event Listeners
-    window.addEventListener('resize', onWindowResize, false);
+    // controllers
+    controller1 = renderer.xr.getController(0);
+    scene.add(controller1);
+    controller1.add(line.clone());
+    controlArr.push(controller1);
     controller1.addEventListener('selectstart', onSelectStart);
     controller1.addEventListener('selectend', onSelectEnd);
 
+
+
+
+    if (renderer.xr.getController.length > 1) {
+        controller2 = renderer.xr.getController(1);
+        scene.add(controller2);
+        console.log("controller 2 added");
+        controller2.add(line.clone());
+        controlArr.push(controller2)
+        controller2.addEventListener('selectstart', onSelectStart);
+        controller2.addEventListener('selectend', onSelectEnd);
+    }
+  
+
+
+
+
+
+
+
+
+
+    //Event Listeners
+    window.addEventListener('resize', onWindowResize, false);
     console.log(scene);
 
 }//finish init////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,7 +254,7 @@ function handleController(controller) {
                     //remove VR button
                     var bt = document.getElementById('butts1');
                     bt.remove();
-                    
+
                     var butRestart = document.createElement('button');
                     butRestart.className = "newButts";
                     butRestart.id = 'butR';
@@ -377,6 +400,7 @@ function render() {
     cleanIntersected();
 
     handleController(controller1);
+   if(controller2){ handleController(controller2);}
 
     camera.lookAt(cameraTarget);
 

@@ -24,10 +24,13 @@ var VRButton = {
 
 				session.addEventListener('end', onSessionEnded);
 
+				//	renderer.xr.setReferenceSpaceType('local-floor');//new
+
 				renderer.xr.setSession(session);
 				button.textContent = 'EXIT VR';
 
 				currentSession = session;
+
 
 			}
 
@@ -67,7 +70,7 @@ var VRButton = {
 
 				if (currentSession === null) {
 
-					var sessionInit = { optionalFeatures: ['local-floor', 'bounded-floor'] };
+					var sessionInit = { optionalFeatures: ['local-floor'] };
 					navigator.xr.requestSession('immersive-vr', sessionInit)
 
 						.then(onSessionStarted)
@@ -107,13 +110,15 @@ var VRButton = {
 								"spot"
 							];
 							visOff.forEach((name) => {
-								var  object = scene.getObjectByName(name);
+								var object = scene.getObjectByName(name);
 								scene.remove(object);
 
 
 							});
 
-							    addPaper();
+							addPaper();
+
+							console.log('renderer xr', renderer.xr)
 						}
 
 						)
@@ -144,11 +149,11 @@ var VRButton = {
 
 		}
 
-		function disposeButton(){
+		function disposeButton() {
 
 
 		}
-		
+
 		function showWebXRNotFound() {
 
 			disableButton();
@@ -177,9 +182,9 @@ var VRButton = {
 		if ('xr' in navigator) {
 
 			var button = document.createElement('button');
-//////////////////////////////////////////////////////////////////////////			
-			button.id ='butts1'
-/////////////////////////////////////////////////////////////////////////			
+			//////////////////////////////////////////////////////////////////////////			
+			button.id = 'butts1'
+			/////////////////////////////////////////////////////////////////////////			
 			button.style.display = 'none';
 
 			stylizeElement(button);

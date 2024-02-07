@@ -6,7 +6,7 @@ import { picNew } from '../../js/_picNewClass.mjs';
 
 export async function addPicTitle() {
 
-    const tp = await new picNew(
+    const tp = new picNew(
 
         new THREE.PlaneBufferGeometry(0.9,0.9, 1, 1),
         new THREE.MeshBasicMaterial({ color: 'white' }),
@@ -32,7 +32,7 @@ export async function addPicTitle() {
 
 export async function addCredits1() {
 
-    const cr1 = await new picNew(
+    const cr1 = new picNew(
 
         new THREE.PlaneBufferGeometry(0.5, 0.5, 1, 1),
         new THREE.MeshBasicMaterial({ color: 'white' }),
@@ -51,7 +51,7 @@ export async function addCredits1() {
 
 export async function addCredits2() {
 
-    const cr2 = await new picNew(
+    const cr2 = new picNew(
 
         new THREE.PlaneBufferGeometry(0.5, 0.5, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),
@@ -70,7 +70,7 @@ export async function addCredits2() {
 
 export async function addCredits3() {
 
-    const cr3 = await new picNew(
+    const cr3 = new picNew(
 
         new THREE.PlaneBufferGeometry(0.75, 0.75, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),
@@ -91,7 +91,7 @@ export async function addCredits3() {
 
 export async function addArrowUp() {
 
-    const aUp = await new picNew(
+    const aUp = new picNew(
 
         new THREE.PlaneBufferGeometry(0.2, 0.2, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),
@@ -112,7 +112,7 @@ export async function addArrowUp() {
 
 export async function addArrowDown() {
 
-    const aDown = await new picNew(
+    const aDown =  new picNew(
 
         new THREE.PlaneBufferGeometry(0.2, 0.2, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),
@@ -132,7 +132,7 @@ export async function addArrowDown() {
 
 export async function addClear() {
 
-    const clr = await new picNew(
+    const clr = new picNew(
 
         new THREE.PlaneBufferGeometry(0.2, 0.2, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),
@@ -153,7 +153,7 @@ export async function addClear() {
 
 export async function addExit() {
 
-    const ext = await new picNew(
+    const ext = new picNew(
 
         new THREE.PlaneBufferGeometry(0.2, 0.2, 1, 1),
         new THREE.MeshLambertMaterial({ color: 'white' }),

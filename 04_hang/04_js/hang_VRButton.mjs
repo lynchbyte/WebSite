@@ -69,7 +69,7 @@ var VRButton = {
 
 				if (currentSession === null) {
 
-					var sessionInit = { optionalFeatures: ['local-floor', 'bounded-floor'] };
+					var sessionInit = { optionalFeatures: ['local-floor'] };
 					navigator.xr.requestSession('immersive-vr', sessionInit)
 
 						.then(onSessionStarted)

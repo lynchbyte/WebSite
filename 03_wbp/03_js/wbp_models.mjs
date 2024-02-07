@@ -1,7 +1,7 @@
 /**
  * @author Shauna Lynch <lynchbyte.com>
  */
-import { scene, group } from '../wbp_app.js';
+import { scene } from '../wbp_app.js';
 import { modNew } from '../../js/_modelNewClassG.mjs';
 
 
@@ -10,7 +10,7 @@ import { modNew } from '../../js/_modelNewClassG.mjs';
  	let path = '03_media/GLB/';
  	let glbFile = 'easel4.glb';
 
-	const easel = await new modNew(
+	const easel = new modNew(
 		new THREE.PlaneBufferGeometry(0.01, 0.01, 1, 1),
 		new THREE.MeshPhongMaterial({ color: 'green' }),
 		path, glbFile, 

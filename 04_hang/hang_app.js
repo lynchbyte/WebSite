@@ -22,7 +22,7 @@ window.THREE = THREE;
 export const scene = new THREE.Scene();
 
 export let camera;
-export let controller;
+export let controller1, controller2;
 
 export var wrdArr = [];
 
@@ -91,22 +91,34 @@ function init() {
 
     document.body.appendChild(VRButton.createButton(renderer));
 
-    // controllers
-    controller = renderer.xr.getController(0);
-    scene.add(controller);
-
     // controllers helper
     var material = new THREE.LineBasicMaterial({ color: 0x000000 });
     var geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, - 1)]);
     var line = new THREE.Line(geometry, material);
     line.name = 'line';
     line.scale.z = 5;
-    controller.add(line.clone());
+
+    // controllers
+    controller1 = renderer.xr.getController(0);
+    scene.add(controller1);
+    controller1.add(line.clone());
+    controller1.addEventListener('selectstart', onSelectStart);
+    controller1.addEventListener('selectend', onSelectEnd);
+
+    console.log('rener xr', renderer.xr);
+
+    if (renderer.xr.getController.length > 1) {
+        controller2 = renderer.xr.getController(1);
+        scene.add(controller2);
+        console.log("controller 2 added");
+        controller2.add(line.clone());
+        controller2.addEventListener('selectstart', onSelectStart);
+        controller2.addEventListener('selectend', onSelectEnd);
+    }
 
     //Event Listeners
     window.addEventListener('resize', onWindowResize, false);
-    controller.addEventListener('selectstart', onSelectStart);
-    controller.addEventListener('selectend', onSelectEnd);
+
     document.addEventListener('click', () => {
 
 
@@ -146,7 +158,7 @@ function checkForWin() {
         scene.traverse(function (object) {
             if (object.userData.isSpacer === true)
 
-                sparklers.push(object);         
+                sparklers.push(object);
         });
 
     }
@@ -426,9 +438,9 @@ function onSelectEnd(event) {
 
                     }, 1200);
 
-                } 
+                }
 
-        } 
+        }
 
         if (n === false) {
 
@@ -530,7 +542,8 @@ function render() {
 
     cleanIntersected();
 
-    intersectObjects(controller);
+    intersectObjects(controller1);
+    if(controller2){ handleController(controller2);}
 
     renderer.render(scene, camera);
 
