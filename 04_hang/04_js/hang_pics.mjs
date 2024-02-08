@@ -6,7 +6,7 @@ import { picNew } from '../../js/_picNewClass.mjs';
 
 export async function addPicTitle() {
 
-    const tp = await new picNew(
+    const tp = new picNew(
 
         new THREE.PlaneBufferGeometry(1.8, 1.8, 1, 1),
         new THREE.MeshBasicMaterial({ color: 'white' }),
@@ -26,7 +26,7 @@ export async function addPicTitle() {
 
 export async function addCredits1() {
 
-    const cr1 = await new picNew(
+    const cr1 =  new picNew(
 
         new THREE.PlaneBufferGeometry(1, 1, 1, 1),
         new THREE.MeshBasicMaterial({ color: 'white' }),
@@ -48,7 +48,7 @@ export async function makePicReplay() {
 
     const picSz2 = 0.5;//size of button for group
 
-    const rp = await new picNew(
+    const rp =  new picNew(
         new THREE.PlaneBufferGeometry(picSz2, picSz2, 1, 1),     
         new THREE.MeshPhongMaterial({ color: 'green' }),     
         './04_media/hangManReplay.png',         //url
@@ -77,7 +77,7 @@ export async function makePicCatSt() {
 
     const picSz3 = 1;//size of button for group
 
-    const rcs = await new picNew(
+    const rcs = new picNew(
         new THREE.PlaneBufferGeometry(picSz3, 0.5 * picSz3, 1, 1),      
         new THREE.MeshPhongMaterial({ color: 'green' }),    
         './04_media/hangManCat2.jpg',       //url
@@ -98,7 +98,7 @@ export async function makePicCat() {
 
     const picSz3 = 1;
 
-    const rc = await new picNew(
+    const rc = new picNew(
         new THREE.PlaneBufferGeometry(picSz3, 0.5 * picSz3, 1, 1),     
         new THREE.MeshPhongMaterial({ color: 'green' }),     
         './04_media/hangManCat2.jpg',       //url
@@ -119,7 +119,7 @@ export async function makePicDrag() {
 
     const picSz5 = 1;
 
-    const dp = await new picNew(
+    const dp = new picNew(
         new THREE.PlaneBufferGeometry(picSz5, picSz5, 1, 1),      
         new THREE.MeshPhongMaterial({ color: 'green' }),     
         './04_media/hangManDrag.jpg',       //url
@@ -140,7 +140,7 @@ export async function makePicStart() {
 
     const picSz5 = 1;
 
-    const sp = await new picNew(
+    const sp = new picNew(
         new THREE.PlaneBufferGeometry(picSz5, picSz5, 1, 1),     
         new THREE.MeshPhongMaterial({ color: 'green' }),    
         './04_media/hangManStart.png',         //url
@@ -163,5 +163,27 @@ export async function makePicStart() {
 
     scene.add(sp);
     clickRoom.push(sp);
+
+}
+
+
+export async function makePicExit() {
+
+    const picSz6 = 0.5;
+
+    const ex = new picNew(
+        new THREE.PlaneBufferGeometry(picSz6,  picSz6, 1, 1),     
+        new THREE.MeshPhongMaterial({ color: 'green' }),     
+        './04_media/hangManExit.png',       //url
+        0, (-45 * (Math.PI / 180)), 0,      //rotX,rotY,rotZ     
+        3.5, -1, -3,                      //posX,posY,posZ
+        'ex',                               //name
+        true,                               //vis       
+        false,                              //recShad, 
+        false,                              //castShad,
+
+    );
+
+    scene.add(ex);
 
 }

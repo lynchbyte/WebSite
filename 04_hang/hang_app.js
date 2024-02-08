@@ -22,7 +22,8 @@ window.THREE = THREE;
 export const scene = new THREE.Scene();
 
 export let camera;
-export let controller1, controller2;
+//export let controller1, controller2;
+export const controlArr = [];
 
 export var wrdArr = [];
 
@@ -91,30 +92,6 @@ function init() {
 
     document.body.appendChild(VRButton.createButton(renderer));
 
-    // controllers helper
-    var material = new THREE.LineBasicMaterial({ color: 0x000000 });
-    var geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, - 1)]);
-    var line = new THREE.Line(geometry, material);
-    line.name = 'line';
-    line.scale.z = 5;
-
-    // controllers
-    controller1 = renderer.xr.getController(0);
-    scene.add(controller1);
-    controller1.add(line.clone());
-    controller1.addEventListener('selectstart', onSelectStart);
-    controller1.addEventListener('selectend', onSelectEnd);
-
-    console.log('rener xr', renderer.xr);
-
-    if (renderer.xr.getController.length > 1) {
-        controller2 = renderer.xr.getController(1);
-        scene.add(controller2);
-        console.log("controller 2 added");
-        controller2.add(line.clone());
-        controller2.addEventListener('selectstart', onSelectStart);
-        controller2.addEventListener('selectend', onSelectEnd);
-    }
 
     //Event Listeners
     window.addEventListener('resize', onWindowResize, false);
@@ -218,7 +195,7 @@ function cleanIntersected() {
 
 }
 
-function onSelectStart(event) {
+export function onSelectStart(event) {
 
     soundClick.play();
 
@@ -327,6 +304,12 @@ function onSelectStart(event) {
 
                 break;
 
+                case 'ex': //exit button
+
+                window.open('http://www.lynchbyte.com','_blank',)
+
+                break;
+                
             //else
             default:
 
@@ -342,7 +325,7 @@ function onSelectStart(event) {
 
 }
 
-function onSelectEnd(event) {
+export function onSelectEnd(event) {
 
     var controller = event.target;
 
@@ -542,8 +525,16 @@ function render() {
 
     cleanIntersected();
 
-    intersectObjects(controller1);
-    if(controller2){ handleController(controller2);}
+    if (controlArr.length > 0) {
+
+        intersectObjects(controlArr[0]);
+
+        if (controlArr[1]) {
+
+            intersectObjects(controlArr[1]);
+
+        }
+    }
 
     renderer.render(scene, camera);
 

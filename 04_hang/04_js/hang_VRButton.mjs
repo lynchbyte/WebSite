@@ -3,10 +3,12 @@
  * @author Mugen87 / https://github.com/Mugen87
  */
 
-import { scene } from '../hang_app.js'
+import { scene, controlArr, onSelectStart, onSelectEnd  } from '../hang_app.js'
 import { addBoots } from '../04_js/hang_models.mjs';
-import { addCredits1,  makePicStart, makePicCatSt } from '../04_js/hang_pics.mjs';
+import { addCredits1,  makePicStart, makePicCatSt, makePicExit } from '../04_js/hang_pics.mjs';
 import { addFloor } from '../04_js/hang_basics.mjs';
+
+let controller1, controller2;
 
 var VRButton = {
 
@@ -30,6 +32,32 @@ var VRButton = {
 				button.textContent = 'EXIT VR';
 
 				currentSession = session;
+
+				
+				console.log('renderer xr', renderer.xr);
+
+				// controllers helper
+				var material = new THREE.LineBasicMaterial({ color: 0x000000 });
+				var geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, - 1)]);
+				var line = new THREE.Line(geometry, material);
+				line.name = 'line';
+				line.scale.z = 5;
+
+				//add controllers here
+				controller1 = renderer.xr.getController(0);
+				controller1.add(line.clone());
+				controller1.addEventListener('selectstart', onSelectStart);
+				controller1.addEventListener('selectend', onSelectEnd);
+				controlArr.push(controller1);
+				scene.add(controller1)
+
+
+				controller2 = renderer.xr.getController(1);
+				controller2.add(line.clone());
+				controller2.addEventListener('selectstart', onSelectStart);
+				controller2.addEventListener('selectend', onSelectEnd);
+				controlArr.push(controller2);
+				scene.add(controller2);
 
 			}
 
@@ -85,6 +113,8 @@ var VRButton = {
 							makePicStart();
 
 							makePicCatSt() ;
+
+							makePicExit();
 
 							//delte title pic
 							var object = scene.getObjectByName('Title');
