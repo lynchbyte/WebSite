@@ -231,6 +231,14 @@ function handleController(controller) {
                     document.body.appendChild(butRestart);
                     butRestart.onclick = function () { window.location.reload(true); };
 
+                    var butExit = document.createElement('button');
+                    butExit.className = "newButts";
+                    butExit.id = 'butExit';
+                    butExit.textContent = 'Exit';
+                    butExit.style.left = 'calc(50% - 75px)';
+                    document.body.appendChild(butExit);
+                    butExit.onclick = function () { window.open('http://www.lynchbyte.com','_blank',) }
+
                     var butExDwnld = document.createElement('button');
                     butExDwnld.className = "newButts";
                     butExDwnld.id = 'butE';
