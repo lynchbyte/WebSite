@@ -8,45 +8,27 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta name="description" content="Web XR Example by lynchbyte">
+
     <meta name="keywords" content="web xr, web vr, virtual reality, vr, vr games, augmented reality, three.js webxr">
 
     <meta name="author" content="Shauna Lynch">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/skeleton-min.css" />
 
-    <link rel="stylesheet" href="/normalize.css" />
-
-    <link rel="stylesheet" href="/skeleton.css" />
-
-    <link rel="shortcut icon" type="image/svg" href="/01_media/LB_logo.svg"/>
-
-    <!--  <link rel="stylesheet" href="/style_next.css"> -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/svg" href="/01_media/logo_LB.svg" />
 
     <title>Lynch Byte</title>
 
 </head>
+
 <style>
+
     * {
         margin: 0;
         padding: 0;
     }
-
-    body {
-
-        font-family: 'Open Sans Condensed', sans-serif;
-
-    }
-
-    .para {
-
-        font-family: 'Open Sans', sans-serif;
-
-    }
+ 
 
     .img {
 
@@ -67,173 +49,42 @@
 
     }
 
-    .canvasholder {
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-
     .webgl {
-
- /*        top: 0;
-        left: 0;
-        width: 100%;*/
 
         display: block;
         margin-left: auto;
         margin-right: auto;
         outline: none;
-        padding: 20px
-    }
+        padding: 20px;
 
-    .blackout {
-
-        width: 100%;
-        height: 100%;
-        background: black;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width:600px;
+        height:600px;
+        border:1px solid;
+      margin-top: 20px;
 
     }
 
-    .loadingspinner {
-
-        pointer-events: none;
-        width: 2.5em;
-        height: 2.5em;
-        border: 0.4em solid transparent;
-        border-color: rgb(0, 0, 0);
-        border-top-color: #3b2535;
-        border-radius: 50%;
-        animation: loadingspin 1s linear infinite;
-
-    }
-
-    @keyframes loadingspin {
-
-        100% {
-
-            transform: rotate(360deg)
-        }
-
-    }
-
-    
-
-/* -------------scroll down animaton--------------*/
-
-.scroll-down {
-  position: absolute;
-  left: 87.5%;
-  bottom: 25%;
-  display: none; /* for mobile, not shown*/
-  text-align: center;
-  font-size: 20px;
-  z-index: 100;
-  text-decoration: none;
-  text-shadow: 0;
-  width: 13px;
-  height: 13px;
-  border-bottom: 2px solid rgb(22, 19, 19);
-  border-right: 2px solid rgb(60, 55, 55);
-  -webkit-transform: translate(-50%, 0%) rotate(45deg);
-  -moz-transform: translate(-50%, 0%) rotate(45deg);
-  transform: translate(-50%, 0%) rotate(45deg);
-  -webkit-animation: fade_move_down 4s ease-in-out infinite;
-  -moz-animation: fade_move_down 4s ease-in-out infinite;
-  animation: fade_move_down 4s ease-in-out infinite;
-  cursor: pointer;
+    a {
+  color: slategray;
 }
-
-@media (min-width:768px) {
-    .scroll-down{
-        display: block; /* for desktop, shown*/
-    }
-}
-
-
-@-webkit-keyframes fade_move_down {
-  0% {
-    -webkit-transform: translate(0, -10px) rotate(45deg);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: translate(0, 10px) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-@-moz-keyframes fade_move_down {
-  0% {
-    -moz-transform: translate(0, -10px) rotate(45deg);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    -moz-transform: translate(0, 10px) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-@keyframes fade_move_down {
-  0% {
-    transform: translate(0, -10px) rotate(45deg);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(0, 10px) rotate(45deg);
-    opacity: 0;
-  }
-}
-
 
 
 
 </style>
 
 <body>
-    <div class="blackout">
+    
 
-        <div class="loadingspinner">
+    <canvas class="webgl"></canvas>
 
-        </div>
 
-    </div>
-    <div class="scroll-down"> </div>
-
-    <div class="canvasholder">
-
-        <canvas class="webgl" class="u-max-full-width" ></canvas>
-
-    </div>
 
     <!-- Skeleton base component-->
     <div class="container">
 
         <hr>
 
-        <h4> Web Experiments </h4>
+        <h4 style="margin-bottom: 1.5rem;"><b>Web Experiments</b> </h4>
 
         <!-- Grid -->
         <!-- first row -->
@@ -241,39 +92,34 @@
 
             <div class="one-third column">
                 <a href="/17_Trisk/index.html">
-                    <img src="/01_media/Triskatopia_600_400_lynchByte.png" class="img">
+                    <img src="/01_media/pic_09_Trisk.webp" class="img">
                 </a>
                 <h5>Triskatopia</h5>
-                <p class=para>My entry for js13k Games WebXR 2024. VR only. - September 2024
+                <p>My entry for js13k Games WebXR 2024. VR only. - September 2024
 
                 </p>
             </div>
 
             <div class="one-third column">
                 <a href="/16_Marco/index.html">
-                    <img src="/01_media/Marco_600_400.png" class="img">
+                    <img src="/01_media/pic_08_Marco.webp" class="img">
                 </a>
                 <h5>Marco</h5>
-                <p class=para>My entry for js13k Games WebXR 2023. VR only. - August 2023
+                <p>My entry for js13k Games WebXR 2023. VR only. - August 2023
 
                 </p>
             </div>
 
             <div class="one-third column">
                 <a href="/12_TicTacWoe/index.html">
-                    <img src="/01_media/TicTacWoe_600_400-2.png" class="img">
+                    <img src="/01_media/pic_07_Tic.webp" class="img">
                 </a>
                 <h5>Tic Tac Woe</h5>
-                <p class=para>My entry for js13k Games WebXR 2022. Desktop, VR or AR.
+                <p>My entry for js13k Games WebXR 2022. Desktop, VR or AR.
                     - August 2022
 
                 </p>
             </div>
-
-
-
-
-
 
 
 
@@ -282,100 +128,79 @@
         <!-- second row -->
         <div class="row">
 
-
-
             <div class="one-third column">
                 <a href="/10_snow/index.html">
-                    <img src="/01_media/snow_landing_600x400.webp" class="img">
+                    <img src="/01_media/pic_06_OChristmas.webp" class="img">
                 </a>
                 <h5>O' Christmas Tree</h5>
-                <p class=para>Web AR Hit Test for mobile devices. Tree by <a
+                <p>Web AR Hit Test for mobile devices. Tree by <a
                         href=https://sketchfab.com/asvari>BlobFortress</a> - December 2021
 
                 </p>
             </div>
 
-
-            
             <div class="one-third column">
                 <a href="/09_sunsetStars/index.html">
-                    <img src="/01_media/titleSS.webp" class="img">
+                    <img src="/01_media/pic_05_Sunset.webp" class="img">
                 </a>
                 <h5>Sunset Stars</h5>
-                <p class=para>My entry for js13k Games WebXR 2021.
+                <p >My entry for js13k Games WebXR 2021.
                     VR headset and controller required - August 2021
                 </p>
             </div>
 
-
-
             <div class="one-third column">
                 <a href="/07_box/index.html">
-                    <img src="/01_media/box_landing_600x400.webp" class="img">
+                    <img src="/01_media/pic_04_Cannon.webp" class="img">
                 </a>
                 <h5>Cannon + Three</h5>
-                <p class=para>three.js scene with cannon.js, a 3D physics engine - September 2021
+                <p  >three.js scene with cannon.js, a 3D physics engine - September 2021
                 </p>
             </div>
-
-
-
- 
-
-
-
 
         </div>
 
         <!-- third row -->
-
-
         <div class="row">
-
 
             <div class="one-third column">
                 <a href="/05_hit/hit.html">
-                    <img class="img" src="/01_media/hitTest.png">
+                    <img class="img" src="/01_media/pic_03_ARhit.webp">
                 </a>
                 <h5>AR Hit Test</h5>
-                <p style="font-family: 'Open Sans', sans-serif">An augmented reality scene using Web XR and three.js.
-                    Suitable for mobile devices. 
-                    <br />Castle by <a
+                <p>An augmented reality scene using Web XR and three.js.
+                    Suitable for mobile devices.  Castle by <a
                         href="https://sketchfab.com/3d-models/medieval-fantasy-book-06d5a80a04fc4c5ab552759e9a97d91a">Pixel</a>,
                     <small> license <a href="https://creativecommons.org/licenses/by/4.0/"> CC-BY 4.0</a></small>
-                    <br /> Music by <a href="http://ccmixter.org/files/_ghost/25389">_ghost</a>, <small> license <a
+                    .  Music by <a href="http://ccmixter.org/files/_ghost/25389">ghost</a>, <small> license <a
                             href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-                            - May 2020
-                        </p>
+                    - May 2020
+                </p>
             </div>
-
-
-
 
             <div class="one-third column">
                 <a href="/04_hang/hang.html">
-                    <img class="img" src="/01_media/hangmanTitle.png">
+                    <img class="img" src="/01_media/pic_02_Hang.webp">
                 </a>
                 <h5>Hang Man</h5>
-                <p class=para>A virtual reality game using Web XR and three.js <br /> Boots by <a
+                <p>A virtual reality game using Web XR and three.js.   Boots by <a
                         href="https://poly.google.com/view/9Qf1MHGePvS">Google</a> on Poly, <small>license <a
-                            href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a></small>
-                            - November 2018
-                        </p>
+                            href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY 3.0</a></small>
+                    - November 2018
+                </p>
             </div>
-
 
             <div class="one-third column">
                 <a href="/03_wbp/wbp.html">
-                    <img src="/01_media/WhiteBlankPage.png" class="img">
+                    <img src="/01_media/pic_01_WBP.webp" class="img">
                 </a>
                 <h5>White Blank Page</h5>
-                <p class=para>A virtual reality drawing canvas using Web XR and
-                    three.js  <br />Drafting table by <a
-                        href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson </a>on Poly, <small> license
-                        <a href="https://creativecommons.org/licenses/by/3.0/legalcode"> CC-BY 3.0</a> </small>
-                        - September 2019
-                    </p>
+                <p  >A virtual reality drawing canvas using Web XR and
+                    three.js.  Drafting table by <a href="https://poly.google.com/view/8Z4yYj39NWS">Joshua Johanson
+                    </a>on Poly, <small> license
+                        <a href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY 3.0</a> </small>
+                    - September 2019
+                </p>
 
 
             </div>
@@ -389,9 +214,9 @@
         <hr>
         <h4> About </h4>
 
-        <p class=para>
+        <p  >
             Web experiments using Web XR and three.js.
-            <br /> Made in Newcastle, Australia. ❤️ 🦘 🐨
+            <br /> Made in Newcastle, Australia. 
 
 
             <!--Form -->
@@ -425,13 +250,13 @@
         <hr>
         <div style="text-align: center">
 
-            <a href="https://github.com/lynchbyte"><img src="01_media/github.svg"
+            <a href="https://github.com/lynchbyte"><img src="01_media/logo_github.svg"
                     style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
 
-            <a href="https://twitter.com/Shauna__Lynch"><img src="01_media/twitter.svg"
+            <a href="https://twitter.com/Shauna__Lynch"><img src="01_media/logo_twitter.svg"
                     style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
 
-            <a href="https://linkedin.com/in/shauna-lynch"><img src="01_media/linkedin.svg"
+            <a href="https://linkedin.com/in/shauna-lynch"><img src="01_media/logo_linkedin.svg"
                     style="width:50px;height:50px;margin:25px;" class=w3-hover-opacity></a>
 
         </div>
@@ -466,10 +291,10 @@
 
     <script>
 
-</script>
+    </script>
 
 
-    <script type="module" src="14_landing/script.js"></script>
+    <script type="module" src="18_landing/script.js"></script>
 
 </body>
 
