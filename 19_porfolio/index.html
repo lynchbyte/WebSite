@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shauna Lynch Portfolio</title>
+    <link rel="stylesheet" href="../skeleton-min.css" />
+
+    <style>
+        .img {
+
+            width: 98%;
+            border-style: solid;
+            border-color: #e6e1e1;
+            border-width: 4px;
+            filter: alpha(opacity=100);
+            transition: .25s ease;
+
+        }
+
+        .img:hover {
+
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            transition: .25s ease;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Enter Password to Access</h2>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Submit</button>
+
+    <div id="content" style="display:none;">
+        <h3>Shauna Lynch Portfolio</h3>
+        <p>This is the protected content.</p>
+
+
+        <!-- Skeleton base component-->
+        <div class="container">
+
+            <hr>
+
+            <h4 style="margin-bottom: 1.5rem;"><b>CAD</b> </h4>
+                        <!-- second row -->
+                        <div class="row">
+
+                            <div class="one-third column">
+                                <a href="CAD Porfolio Slides.mp4">
+                                    <img src="01 pic_Eng01.webp" class="img">
+                                </a>
+                                <h5>Past Projects</h5>
+                                <p>3D models and 2D drawings using Inventor, Advanced Steel, Solidworks
+            
+                                </p>
+                            </div>
+            
+            
+                        </div>
+
+
+                        <hr>
+
+            <h4 style="margin-bottom: 1.5rem;"><b>Game Engine</b> </h4>
+
+            <!-- Grid -->
+            <!-- first row -->
+            <div class="row">
+
+                <div class="one-third column">
+                    <a href="Terminal Intro.mp4">
+                        <img src="02 pic_Terminal 01.webp" class="img">
+                    </a>
+                    <h5>Terminal - Intro Scene</h5>
+                    <p>Final Unity Assignment for Digital Media Certificate - September 2015
+
+                    </p>
+                </div>
+
+                <div class="one-third column">
+                    <a href="Terminal Fly Thru.mp4">
+                        <img src="02 pic_Terminal 02.webp" class="img">
+                    </a>
+                    <h5>Terminal - Level Fly Thru</h5>
+                    <p>Final Unity for Digital Media Certificate - September 2015
+
+                    </p>
+                </div>
+
+                <div class="one-third column">
+                    <a href="Terminal Concept Art.pdf">
+                        <img src="02 pic_Terminal 03.webp" class="img">
+                    </a>
+                    <h5>Terminal - Concept Art</h5>
+                    <p>Final Unity for Digital Media Certificate - September 2015
+
+                    </p>
+                </div>
+
+
+            </div>
+
+          
+
+
+
+            <hr>
+
+
+            <h4 style="margin-bottom: 1.5rem;"><b>Animations</b> </h4>
+
+            <!-- third row -->
+            <div class="row">
+
+                <div class="one-third column">
+                    <a href="Anim 01.mp4">
+                        <img src="03 pic_Anim 01.webp" class="img">
+                    </a>
+                    <h5>Trainload Out Facility</h5>
+                    <p>Inventor Model & 3DS Max Animation - 2016
+
+                    </p>
+                </div>
+
+                <div class="one-third column">
+                    <a href="Anim 02.mp4">
+                        <img src="03 pic_Anim 02.webp" class="img">
+                    </a>
+                    <h5>Valve Component Animation</h5>
+                    <p>Inventor Presentation- 2016
+
+                    </p>
+                </div>
+
+                <div class="one-third column">
+                    <a href="Anim 03.mp4">
+                        <img src="03 pic_Anim 03.webp" class="img">
+                    </a>
+                    <h5>Particles Animations</h5>
+                    <p>3dS Max 2017
+
+                    </p>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === '123') {
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Incorrect password');
+            }
+        }
+    </script>
+</body>
+
+</html>
